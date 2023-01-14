@@ -1,33 +1,39 @@
 # encoder properties
 flagEncoderProperties:
-  - name: tramtrain
-    electrified: contact_line
-    voltages: 15000;15000;750
-    frequencies: 16.7;16.67;0
-    gauges: 1435
-    maxspeed: 100
-    speed_factor: 11
-    railway: "rail;light_rail;tram"
-  - name: tgv_all
+  - name: el_spd_320
     railway: rail
-    electrified: contact_line
+    electrified: contact_line,yes
     voltages: 15000;25000;1500;3000
     frequencies: 16.7;16.67;50;0
     gauges: 1435
-    maxspeed: 319
+    maxspeed: 320
     speed_factor: 11
-  - name: non_tgv
-    gauges: 1435
-    maxspeed: 120
-    speed_factor: 5
-  - name: alltracks
-    railway: rail;light_rail;tram;subway;narrow_gauge
-    maxspeed: 120
-    speed_factor: 5
-  - name: allelectric
-    maxspeed: 140
-    speed_factor: 5
+  - name: el_spd_310
+    railway: rail
     electrified: contact_line,yes
+    voltages: 15000;25000;1500;3000
+    frequencies: 16.7;16.67;50;0
+    gauges: 1435
+    maxspeed: 310
+    speed_factor: 11
+  - name: el_spd_300
+    railway: rail
+    electrified: contact_line,yes
+    voltages: 15000;25000;1500;3000
+    frequencies: 16.7;16.67;50;0
+    gauges: 1435
+    maxspeed: 310
+    speed_factor: 11
+  - name: ne_spd_250
+    railway: rail
+    gauges: 1435
+    maxspeed: 250
+    speed_factor: 11
+  - name: ne_spd_240
+    railway: rail
+    gauges: 1435
+    maxspeed: 240
+    speed_factor: 11
 
 graphhopper:
   # OpenStreetMap input file
@@ -38,7 +44,7 @@ graphhopper:
 
   # This property determines which flag encoders are enabled. You can use the hardcoded flag encoder configurations
   # or any of the encoders defined with flagEncoderProperties
-  graph.flag_encoders: tgv_all|turn_costs=true|u_turn_costs=300,stadtbahn|turn_costs=true|u_turn_costs=300
+  graph.flag_encoders: el_spd_320|turn_costs=true|u_turn_costs=300,el_spd_310|turn_costs=true|u_turn_costs=300,el_spd_300|turn_costs=true|u_turn_costs=300,ne_spd_250|turn_costs=true|u_turn_costs=300,ne_spd_240|turn_costs=true|u_turn_costs=300
   # Define routing profiles to offer (
   ##### Routing Profiles ####
 
@@ -63,13 +69,28 @@ graphhopper:
   # To prevent long running routing queries you should usually enable either speed or hybrid mode for all the given
   # profiles (see below). Otherwise you should at least limit the number of `routing.max_visited_nodes`.
   profiles:
-    - name: tgv_all
-      vehicle: tgv_all
+    - name: el_spd_320
+      vehicle: el_spd_320
       weighting: fastest
       turn_costs: true
       u_turn_costs: 300
-    - name: stadtbahn
-      vehicle: stadtbahn
+    - name: el_spd_310
+      vehicle: el_spd_310
+      weighting: fastest
+      turn_costs: true
+      u_turn_costs: 300
+    - name: el_spd_300
+      vehicle: el_spd_300
+      weighting: fastest
+      turn_costs: true
+      u_turn_costs: 300
+    - name: ne_spd_250
+      vehicle: ne_spd_250
+      weighting: fastest
+      turn_costs: true
+      u_turn_costs: 300
+    - name: ne_spd_240
+      vehicle: ne_spd_240
       weighting: fastest
       turn_costs: true
       u_turn_costs: 300
@@ -81,8 +102,11 @@ graphhopper:
   # profiles with `turn_costs: true` a more elaborate preparation is required (longer preparation time and more memory
   # usage) and the routing will also be slower than with `turn_costs: false`.
   profiles_ch:
-    - profile: tgv_all
-    - profile: stadtbahn
+    - profile: el_spd_320
+    - profile: el_spd_310
+    - profile: el_spd_300
+    - profile: ne_spd_250
+    - profile: ne_spd_240
   profiles_lm: []
 
 
