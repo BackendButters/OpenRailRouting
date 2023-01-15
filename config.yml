@@ -60,7 +60,7 @@ graphhopper:
 
   # This property determines which flag encoders are enabled. You can use the hardcoded flag encoder configurations
   # or any of the encoders defined with flagEncoderProperties
-  graph.flag_encoders: el_spd_320|turn_costs=true|u_turn_costs=300,el_spd_310|turn_costs=true|u_turn_costs=300,el_spd_300|turn_costs=true|u_turn_costs=300,el_spd_300|turn_costs=true|u_turn_costs=300,el_spd_100|turn_costs=true|u_turn_costs=90,ne_spd_250|turn_costs=true|u_turn_costs=300,ne_spd_240|turn_costs=true|u_turn_costs=300
+  graph.flag_encoders: el_spd_320|turn_costs=true|u_turn_costs=300,el_spd_310|turn_costs=true|u_turn_costs=300,el_spd_300|turn_costs=true|u_turn_costs=300,el_spd_100|turn_costs=true|u_turn_costs=300,el_spd_90|turn_costs=true|u_turn_costs=90,ne_spd_250|turn_costs=true|u_turn_costs=300,ne_spd_240|turn_costs=true|u_turn_costs=300
   # Define routing profiles to offer (
   ##### Routing Profiles ####
 
