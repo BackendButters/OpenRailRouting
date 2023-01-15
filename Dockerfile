@@ -6,4 +6,4 @@ COPY target/graph-cache /app/graph-cache
 
 EXPOSE 8989
 
-CMD java -jar /app/app.jar -Ddw.graphhopper.prepare.ch.weightings=no -Ddw.graphhopper.datareader.file=/app/germany-latest.osm.pbf -Ddw.graphhopper.graph.location=/app/graph-cache serve config.yml
+CMD java -Xmx1024m -Xms1024m -Ddw.graphhopper.prepare.ch.weightings=no -Ddw.graphhopper.datareader.file=/app/germany-latest.osm.pbf -Ddw.graphhopper.graph.location=/app/graph-cache -jar /app/app.jar serve config.yml
